@@ -1,0 +1,103 @@
+.sapicker {
+    display: none;
+}
+
+.c-flag-sapicker {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 10px
+}
+
+.wrap-sapicker {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.sapicker-ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.sapicker-selected {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.sapicker-selected li {
+    position: relative;
+    padding: .375rem .75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: default;
+    height: calc(1.5em + .75rem + 2px);
+    font-weight: 400;
+    line-height: 2;
+    text-align: left;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.sapicker-selected li::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 6px;
+    height: 6px;
+    top: 50%;
+    right: 0.5rem;
+    margin-top: -2px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-color: #8c8c8c;
+    transform: rotate(45deg) translateY(-50%);
+    transition: all .4s ease-in-out;
+    transform-origin: 50% 0;
+}
+
+.sapicker-option {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+    box-shadow: 0 2px 1px rgb(0 0 0 / 6%);
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.sapicker-option-show {
+    display: block;
+}
+
+.sapicker-option li {
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+}
+
+.sapicker-option li:hover {
+    background-color: #0b66af;
+    color: #fff;
+}
+
+.sapicker-selected>li>img,
+.sapicker-option>li>img {
+    width: 24px;
+    height: 16px;
+    margin-right: 5px;
+    float: left;
+}

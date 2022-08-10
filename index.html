@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sapicker</title>
+  <link rel="stylesheet" type="text/css" href="./css/sapicker.css" />
+  <style>
+    * {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      padding: 4%;
+      background-color: azure;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="c-flag-sapicker">
+    <select class="sapicker">
+      <option value="" selected>Select Option</option>
+      <option value="in" data-thumbnail="./images/in.png">
+        India</option>
+      <option value="tu" data-thumbnail="./images/tr.png">
+        Türkçe</option>
+      <option value="it" data-thumbnail="./images/tl.png">
+        Timor-Leste</option>
+    </select>
+
+  </div>
+
+  <div class="c-flag-sapicker" style="margin-top:10px">
+    <select class="sapicker">
+      <option value="">Select Option</option>
+      <option value="in" data-thumbnail="./images/in.png">
+        India 123</option>
+      <option value="tu" data-thumbnail="./images/tr.png">
+        Türkçe 123</option>
+      <option value="it" data-thumbnail="./images/tl.png">
+        Timor-Leste 123</option>
+    </select>
+  
+  </div>
+
+  <a style="padding: 5px;border: 1px solid;position: absolute;margin-top: 10px;" onclick="getData()">Selected Item</a>
+
+  <script>
+    const getData = () => {
+      alert('Picker One - ' + document.getElementById(`sapicker-0`).querySelector(".sapicker").value);
+      alert('Picker Two - ' + document.getElementById(`sapicker-1`).querySelector(".sapicker").value);
+    }
+  </script>
+  <script src="./js/sapicker.js"></script>
+</body>
+</html>
