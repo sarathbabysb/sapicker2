@@ -1,68 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sapicker</title>
+  <title>Sapicker Demo & Documentation</title>
   <link rel="stylesheet" type="text/css" href="./css/sapicker.css" />
-  <style>
-    * {
-      border: 0;
-      padding: 0;
-      margin: 0;
-    }
-    body {
-      padding: 4%;
-      background-color: azure;
-    }
-    a {
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body>
 
-  <div class="c-flag-sapicker">
-    <select class="sapicker">
-      <option value="" selected>Select Option</option>
-      <option value="in" data-thumbnail="./images/in.png">India</option>
-      <option value="tu" data-thumbnail="./images/tr.png">Türkçe</option>
-      <option value="it" data-thumbnail="./images/tl.png">Timor-Leste</option>
-    </select>
+  <div class="section">
+    <h1>Sapicker Demo & Documentation</h1>
+    <p>
+      <strong>Sapicker</strong> is a custom select dropdown that supports images, dynamic options, and reset
+      functionality. Below is a live demo and copy-ready code examples.
+    </p>
   </div>
 
-  <div class="c-flag-sapicker" style="margin-top:10px">
-    <select class="sapicker">
-      <option value="">Select Option</option>
-      <option value="in" data-thumbnail="./images/in.png">India 123</option>
-      <option value="tu" data-thumbnail="./images/tr.png">Türkçe 123</option>
-      <option value="it" data-thumbnail="./images/tl.png">Timor-Leste 123</option>
-    </select>
+  <!-- Basic Picker Demo -->
+  <div class="section">
+    <h2>1. Basic Picker</h2>
+    <div class="demo-area">
+      <div class="c-flag-sapicker">
+        <select class="sapicker" id="picker-one">
+          <option value="" selected>Select Option</option>
+          <option value="in" data-thumbnail="./images/in.png">India</option>
+          <option value="tu" data-thumbnail="./images/tr.png">Türkçe</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="code-block-container">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <div class="code-block">
+        &lt;div class="c-flag-sapicker"&gt;<br>
+        &nbsp;&nbsp;&lt;select class="sapicker" id="picker-one"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="" selected&gt;Select Option&lt;/option&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="in" data-thumbnail="./images/in.png"&gt;India&lt;/option&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;option value="tu" data-thumbnail="./images/tr.png"&gt;Türkçe&lt;/option&gt;<br>
+        &nbsp;&nbsp;&lt;/select&gt;<br>
+        &lt;/div&gt;
+      </div>
+    </div>
   </div>
 
-  <a style="padding: 5px;border: 1px solid;position: absolute;margin-top: 10px;" onclick="getData()">Selected Item</a>
+  <!-- Dynamic Picker Demo -->
+  <div class="section">
+    <h2>2. Dynamic Picker</h2>
+    <div class="demo-area">
+      <div class="c-flag-sapicker">
+        <select class="sapicker" id="dynamic-data">
+          <option value="" selected>Select Option</option>
+        </select>
+      </div>
+      <div>
+        <button onclick="loadDynamic()">Load Dynamic Data</button>
+        <button onclick="resetDynamic()">Reset Dynamic Data</button>
+      </div>
+    </div>
 
-  <a style="padding: 5px;border: 1px solid;position: absolute;margin-top: 50px;left:120px;" onclick="loadMoreOptions()">Load More Options (AJAX)</a>
+    <div class="code-block-container">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <div class="code-block">
+        &lt;select class="sapicker" id="dynamic-data"&gt;<br>
+        &nbsp;&nbsp;&lt;option value="" selected&gt;Select Option&lt;/option&gt;<br>
+        &lt;/select&gt;<br><br>
 
+        &lt;script&gt;<br>
+        &nbsp;function loadDynamic() {<br>
+        &nbsp;&nbsp;const newData = [<br>
+        &nbsp;&nbsp;&nbsp;{ value: 'tl', text: 'Timor-Leste', image: './images/tl.png' },<br>
+        &nbsp;&nbsp;&nbsp;{ value: 'tr', text: 'Türkçe', image: './images/tr.png' }<br>
+        &nbsp;&nbsp;];<br>
+        &nbsp;&nbsp;Sapicker.addOptions('dynamic-data', newData, 'tu');<br>
+        &nbsp;}<br><br>
+
+        &nbsp;function resetDynamic() {<br>
+        &nbsp;&nbsp;Sapicker.reset('dynamic-data');<br>
+        &nbsp;}<br>
+        &lt;/script&gt;
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Include -->
+
+  <div class="section">
+    <h2>3. Css & JavaScript Include</h2>
+  
+    <div class="code-block-container">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <div class="code-block">
+        &lt;style src="./css/sapicker.css"&gt;&lt;/style&gt;<br>
+        &lt;script src="./js/sapicker.js"&gt;&lt;/script&gt;<br>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <h2>4. JavaScript Include</h2>
+    <p>Include the Sapicker script and initialize:</p>
+
+    <div class="code-block-container">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <div class="code-block">
+        &lt;script&gt;<br>
+        &nbsp;window.addEventListener('DOMContentLoaded', () =&gt; {<br>
+        &nbsp;&nbsp;Sapicker.init();<br>
+        &nbsp;});<br>
+        &lt;/script&gt;
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/sapicker.js"></script>
   <script>
-    const getData = () => {
-      alert('Picker One - ' + document.getElementById(`sapicker-0`).querySelector(".sapicker").value);
-      alert('Picker Two - ' + document.getElementById(`sapicker-1`).querySelector(".sapicker").value);
+    // Initialize Sapicker
+    window.addEventListener('DOMContentLoaded', () => {
+      Sapicker.init();
+    });
+
+    // Dynamic Data Handlers
+    function loadDynamic() {
+      const newData = [
+        { value: 'tl', text: 'Timor-Leste', image: './images/tl.png' },
+        { value: 'tr', text: 'Türkçe', image: './images/tr.png' }
+      ];
+      Sapicker.addOptions('dynamic-data', newData, 'tu'); // select Türkçe
     }
 
-    function loadMoreOptions() {
-      // Simulate AJAX response
-      let newData = [
-        { value: 'jp', text: 'Japan', image: './images/jp.png' },
-        { value: 'us', text: 'USA', image: './images/us.png' }
-      ];
-      // Add to first sapicker and auto select "us"
-      addSapickerOptions(0, newData, 'us');
+    function resetDynamic() {
+      Sapicker.reset('dynamic-data');
+    }
+
+    // Copy button functionality
+    function copyCode(button) {
+      const code = button.nextElementSibling.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => button.textContent = 'Copy', 1500);
+      });
     }
   </script>
 
-  <script src="./js/sapicker.js"></script>
 </body>
+
 </html>
