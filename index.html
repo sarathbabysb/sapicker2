@@ -16,6 +16,9 @@
       padding: 4%;
       background-color: azure;
     }
+    a {
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -24,37 +27,42 @@
   <div class="c-flag-sapicker">
     <select class="sapicker">
       <option value="" selected>Select Option</option>
-      <option value="in" data-thumbnail="./images/in.png">
-        India</option>
-      <option value="tu" data-thumbnail="./images/tr.png">
-        Türkçe</option>
-      <option value="it" data-thumbnail="./images/tl.png">
-        Timor-Leste</option>
+      <option value="in" data-thumbnail="./images/in.png">India</option>
+      <option value="tu" data-thumbnail="./images/tr.png">Türkçe</option>
+      <option value="it" data-thumbnail="./images/tl.png">Timor-Leste</option>
     </select>
-
   </div>
 
   <div class="c-flag-sapicker" style="margin-top:10px">
     <select class="sapicker">
       <option value="">Select Option</option>
-      <option value="in" data-thumbnail="./images/in.png">
-        India 123</option>
-      <option value="tu" data-thumbnail="./images/tr.png">
-        Türkçe 123</option>
-      <option value="it" data-thumbnail="./images/tl.png">
-        Timor-Leste 123</option>
+      <option value="in" data-thumbnail="./images/in.png">India 123</option>
+      <option value="tu" data-thumbnail="./images/tr.png">Türkçe 123</option>
+      <option value="it" data-thumbnail="./images/tl.png">Timor-Leste 123</option>
     </select>
-  
   </div>
 
   <a style="padding: 5px;border: 1px solid;position: absolute;margin-top: 10px;" onclick="getData()">Selected Item</a>
+
+  <a style="padding: 5px;border: 1px solid;position: absolute;margin-top: 50px;left:120px;" onclick="loadMoreOptions()">Load More Options (AJAX)</a>
 
   <script>
     const getData = () => {
       alert('Picker One - ' + document.getElementById(`sapicker-0`).querySelector(".sapicker").value);
       alert('Picker Two - ' + document.getElementById(`sapicker-1`).querySelector(".sapicker").value);
     }
+
+    function loadMoreOptions() {
+      // Simulate AJAX response
+      let newData = [
+        { value: 'jp', text: 'Japan', image: './images/jp.png' },
+        { value: 'us', text: 'USA', image: './images/us.png' }
+      ];
+      // Add to first sapicker and auto select "us"
+      addSapickerOptions(0, newData, 'us');
+    }
   </script>
+
   <script src="./js/sapicker.js"></script>
 </body>
 </html>
